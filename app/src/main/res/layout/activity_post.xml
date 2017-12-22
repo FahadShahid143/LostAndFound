@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.fahadshahid.lostandfound.PostActivity">
+
+    <EditText
+        android:id="@+id/lost_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="Item Name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/lost_item_desription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/lost_item_name"
+        android:layout_below="@+id/lost_item_name"
+        android:layout_marginTop="26dp"
+        android:ems="10"
+        android:hint="Item Description"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/lost_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/lost_item_desription"
+        android:layout_below="@+id/lost_item_desription"
+        android:layout_marginTop="27dp"
+        android:ems="10"
+        android:hint="Lost Date"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/person_Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/lost_date"
+        android:layout_below="@+id/lost_date"
+        android:layout_marginTop="39dp"
+        android:ems="10"
+        android:hint="Person Name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/person_PhoneNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/person_Name"
+        android:layout_below="@+id/person_Name"
+        android:layout_marginTop="29dp"
+        android:ems="10"
+        android:hint="Person Phone No"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/person_Address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/person_PhoneNo"
+        android:layout_below="@+id/person_PhoneNo"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="Person Address"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/person_Address"
+        android:layout_marginBottom="14dp"
+        android:layout_marginStart="47dp"
+        android:text="Button" />
+</RelativeLayout>

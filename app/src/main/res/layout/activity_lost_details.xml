@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.fahadshahid.lostandfound.LostDetails">
+
+    <TextView
+        android:id="@+id/tvLostItemId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvLostItemName"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="12dp"
+        android:layout_toEndOf="@+id/tvLostItemName"
+        android:layout_x="134dp"
+        android:layout_y="16dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="28dp" />
+
+    <TextView
+        android:id="@+id/tvLostItemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="134dp"
+        android:layout_y="46dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="69dp" />
+
+    <TextView
+        android:id="@+id/tvLostItemDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="133dp"
+        android:layout_y="84dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="113dp" />
+
+    <TextView
+        android:id="@+id/tvLostDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="134dp"
+        android:layout_y="123dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="159dp" />
+
+    <TextView
+        android:id="@+id/tvPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="132dp"
+        android:layout_y="155dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="201dp" />
+
+    <TextView
+        android:id="@+id/tvPersonPhoneNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="131dp"
+        android:layout_y="195dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="247dp" />
+
+    <TextView
+        android:id="@+id/tvPersonAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="132dp"
+        android:layout_y="234dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="285dp" />
+
+</AbsoluteLayout>
