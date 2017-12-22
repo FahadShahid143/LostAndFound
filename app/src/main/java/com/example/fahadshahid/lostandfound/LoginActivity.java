@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.fahadshahid.lostandfound.Service.ServiceGenerator;
 import com.example.fahadshahid.lostandfound.models.User;
@@ -47,19 +48,20 @@ public class LoginActivity extends AppCompatActivity {
                         public void onResponse(Call<User> call, Response<User> response) {
                             Log.d(TAG, "onResponse() called with: call = [" + call + "], response = [" + response + "]");
 
-                            int id = response.body().getUserId();
-                            SharedPreferences.Editor editor = sharedpreferences.edit();
-                            editor.putInt(ID_KEY, id);
+                            //int id = response.body().getUserId();
+                            //SharedPreferences.Editor editor = sharedpreferences.edit();
+                            //editor.putInt(ID_KEY, id);
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
-                            editor.apply();
+                            //editor.apply();
                         }
 
                         @Override
                         public void onFailure(Call<User> call, Throwable t) {
                             Log.d(TAG, "onFailure() called with: call = [" + call + "], t = [" + t + "]");
-                            Intent intent = new Intent(LoginActivity.this, LoginActivity.class);
-                            startActivity(intent);
+                            Toast.makeText(LoginActivity.this, "Incorrect Email of Password", Toast.LENGTH_SHORT).show();
+                            //Intent intent = new Intent(LoginActivity.this, LoginActivity.class);
+                            //startActivity(intent);
                         }
                     });
                 }

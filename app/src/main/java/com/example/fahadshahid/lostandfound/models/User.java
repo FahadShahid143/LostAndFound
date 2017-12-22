@@ -1,5 +1,8 @@
 package com.example.fahadshahid.lostandfound.models;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Fahad Shahid on 12/22/2017.
  */
