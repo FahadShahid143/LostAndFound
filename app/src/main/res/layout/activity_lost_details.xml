@@ -80,4 +80,14 @@
         tools:layout_editor_absoluteX="145dp"
         tools:layout_editor_absoluteY="285dp" />
 
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="247dp"
+        android:layout_y="347dp"
+        android:text="Delete"
+        tools:layout_editor_absoluteX="241dp"
+        tools:layout_editor_absoluteY="319dp" />
+
 </AbsoluteLayout>

@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.fahadshahid.lostandfound.LostDetails;
 import com.example.fahadshahid.lostandfound.R;
+import com.example.fahadshahid.lostandfound.UpdateActivity;
 import com.example.fahadshahid.lostandfound.models.Lost;
 import com.google.gson.Gson;
 
@@ -82,6 +83,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
                 gson = new Gson();
                 String str = gson.toJson(lostList.get(position));
                 Intent intent = new Intent(context, LostDetails.class);
+                //Intent intent = new Intent(context, UpdateActivity.class);
                 intent.putExtra("Details",str);
                 context.startActivity(intent);
             }

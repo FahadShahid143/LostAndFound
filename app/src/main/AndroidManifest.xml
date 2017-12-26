@@ -22,7 +22,9 @@
         <activity android:name=".LostDetails" />
         <activity android:name=".PostActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".UpdateActivity" />
+        <activity android:name=".ServerList"></activity>
     </application>
 
 </manifest>

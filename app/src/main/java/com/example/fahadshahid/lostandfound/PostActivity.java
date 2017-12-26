@@ -26,12 +26,12 @@ public class PostActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
 
-        final EditText item_name = (EditText) this.findViewById(R.id.lost_item_name);
-        final EditText item_description = (EditText) this.findViewById(R.id.lost_item_desription);
-        final EditText lost_date = (EditText) this.findViewById(R.id.lost_date);
-        final EditText person_Name = (EditText) this.findViewById(R.id.person_Name);
-        final EditText person_PhoneNo = (EditText) this.findViewById(R.id.person_PhoneNo);
-        final EditText person_Address = (EditText) this.findViewById(R.id.person_Address);
+        final EditText item_name = (EditText) this.findViewById(R.id.etLost_item_name);
+        final EditText item_description = (EditText) this.findViewById(R.id.etLost_item_desription);
+        final EditText lost_date = (EditText) this.findViewById(R.id.etLost_date);
+        final EditText person_Name = (EditText) this.findViewById(R.id.etPerson_Name);
+        final EditText person_PhoneNo = (EditText) this.findViewById(R.id.etPerson_PhoneNo);
+        final EditText person_Address = (EditText) this.findViewById(R.id.etPerson_Address);
         final Button btn = (Button) findViewById(R.id.submit);
 
         btn.setOnClickListener(new View.OnClickListener() {
@@ -44,7 +44,7 @@ public class PostActivity extends AppCompatActivity {
                 String personPhoneNo = person_PhoneNo.getText().toString().trim();
                 String personAddress = person_Address.getText().toString().trim();
 
-                Toast.makeText(PostActivity.this,"Clicked",Toast.LENGTH_SHORT).show();
+                Toast.makeText(PostActivity.this,"Record Added",Toast.LENGTH_SHORT).show();
 
 
                 Retrofit retrofit = new Retrofit.Builder()

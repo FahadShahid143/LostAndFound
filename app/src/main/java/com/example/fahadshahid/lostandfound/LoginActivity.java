@@ -3,6 +3,7 @@ package com.example.fahadshahid.lostandfound;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,51 +22,63 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
 
 
-        private static final String TAG = "MTAG";
-        private static final String MYPREFERENCE = "Login";
-        private static final String ID_KEY = "Id_KEY";
-        @Override
-        protected void onCreate (Bundle savedInstanceState){
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_login);
+    private static final String TAG = "MTAG";
+    private static final String MYPREFERENCE = "Login";
+    private static final String ID_KEY = "Id_KEY";
 
-            final EditText email = (EditText) findViewById(R.id.email);
-            final EditText password = (EditText) findViewById(R.id.password);
-            Button button = (Button) findViewById(R.id.login);
-            final SharedPreferences sharedpreferences = getSharedPreferences(MYPREFERENCE, Context.MODE_PRIVATE);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
 
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    String mail = email.getText().toString().trim();
-                    String pass = password.getText().toString().trim();
+        final EditText email = (EditText) findViewById(R.id.email);
+        final EditText password = (EditText) findViewById(R.id.password);
+        Button button = (Button) findViewById(R.id.login);
+        final SharedPreferences sharedpreferences = getSharedPreferences(MYPREFERENCE, Context.MODE_PRIVATE);
 
-                    UserDetail service = new ServiceGenerator().createService(UserDetail.class);
-                    Call<User> user = service.login(mail, pass);
-                    user.enqueue(new Callback<User>() {
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String mail = email.getText().toString().trim();
+                String pass = password.getText().toString().trim();
 
-                        @Override
-                        public void onResponse(Call<User> call, Response<User> response) {
-                            Log.d(TAG, "onResponse() called with: call = [" + call + "], response = [" + response + "]");
+                UserDetail service = new ServiceGenerator().createService(UserDetail.class);
+                Call<User> user = service.login(mail, pass);
+                user.enqueue(new Callback<User>() {
 
-                            //int id = response.body().getUserId();
-                            //SharedPreferences.Editor editor = sharedpreferences.edit();
-                            //editor.putInt(ID_KEY, id);
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(intent);
-                            //editor.apply();
-                        }
+                    @Override
+                    public void onResponse(Call<User> call, Response<User> response) {
+                        Log.d(TAG, "onResponse() called with: call = [" + call + "], response = [" + response + "]");
 
-                        @Override
-                        public void onFailure(Call<User> call, Throwable t) {
-                            Log.d(TAG, "onFailure() called with: call = [" + call + "], t = [" + t + "]");
-                            Toast.makeText(LoginActivity.this, "Incorrect Email of Password", Toast.LENGTH_SHORT).show();
-                            //Intent intent = new Intent(LoginActivity.this, LoginActivity.class);
-                            //startActivity(intent);
-                        }
-                    });
-                }
-            });
-        }
+                        //int id = response.body().getUserId();
+                        //SharedPreferences.Editor editor = sharedpreferences.edit();
+                        //editor.putInt(ID_KEY, id);
+                        String user = response.body().toString();
+                        Log.i(TAG, "onResponse: " + user);
+
+                        SharedPreferences.Editor editor = sharedpreferences.edit();
+                        editor.putString(ID_KEY, user);
+
+                        //Toast.makeText(LoginActivity.this, user, Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+
+                        editor.apply();
+                    }
+
+                    @Override
+                    public void onFailure(Call<User> call, Throwable t) {
+                        Log.d(TAG, "onFailure() called with: call = [" + call + "], t = [" + t + "]");
+                        Toast.makeText(LoginActivity.this, "Incorrect Email of Password", Toast.LENGTH_SHORT).show();
+                        //Intent intent = new Intent(LoginActivity.this, LoginActivity.class);
+                        //startActivity(intent);
+                    }
+                });
+            }
+        });
     }
+
+}
 
